@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
 
+export function initForm() {
     const checkbox = document.querySelector("#privacy-consent");
     const resetBtn = document.querySelector("#form-reset");
     const form = document.querySelector(".contact-form");
@@ -22,4 +22,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-});
+}
