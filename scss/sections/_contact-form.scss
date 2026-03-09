@@ -1,0 +1,184 @@
+@use '../components/buttons' as *;
+@use '../base/variables' as *;
+
+.contact-form-section {
+    background: $color-black;
+    padding: 4rem 0;
+}
+
+.contact-form {
+
+    display: grid;
+    gap: 1.5rem;
+
+    /* INPUTS */
+
+    input,
+    textarea {
+
+        width: 100%;
+        padding: 1rem 1.2rem;
+
+        background: transparent;
+        border: 2px solid $color-accent;
+
+        color: $color-white;
+
+        font-family: inherit;
+        font-size: 1rem;
+
+        outline: none;
+
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+
+        color: $color-text-sub;
+        font-style: italic;
+
+    }
+
+    textarea {
+
+        min-height: 360px;
+        resize: vertical;
+
+    }
+
+    input:focus,
+    textarea:focus {
+
+        border-color: lighten($color-accent, 10%);
+
+    }
+
+    /* GDPR CONSENT */
+
+    .contact-consent {
+
+        grid-column: 1 / -1;
+
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+
+        margin-top: 32px;
+
+        input[type="checkbox"] {
+
+            appearance: none;
+
+            width: 22px;
+            height: 22px;
+
+            border: 2px solid $color-accent;
+            border-radius: 2px;
+
+            background: transparent;
+
+            position: relative;
+            cursor: pointer;
+
+            flex-shrink: 0;
+
+            &:checked::after {
+
+                content: "";
+                position: absolute;
+
+                inset: 4px;
+
+                background: $color-accent;
+
+            }
+
+            &:focus-visible {
+
+                outline: 2px solid $color-accent;
+                outline-offset: 3px;
+
+            }
+
+        }
+
+        label {
+
+            font-size: 0.9375rem;
+            line-height: 1.75;
+
+            color: rgba($color-white, 0.75);
+
+            font-style: italic;
+
+            cursor: pointer;
+
+            max-width: 65ch;
+
+        }
+
+    }
+
+    /* BUTTONS */
+
+    button {
+
+        @include cta-btn(sm);
+
+        width: fit-content;
+
+    }
+
+    button[type="reset"] {
+
+        @include cta-btn(sm, reverse);
+
+    }
+
+    /* spacing između gumba */
+
+    button + button {
+
+        margin-left: 24px;
+
+    }
+
+    /* GRID LAYOUT */
+
+    @media (min-width: $breakpoint-tablet) {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 1.5rem 2rem;
+
+        textarea {
+            grid-column: 1 / -1;
+        }
+
+        .contact-consent {
+            grid-column: 1 / -1;
+        }
+
+    }
+
+}
+
+/* ACCESSIBILITY */
+
+.visually-hidden {
+
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    margin: -1px;
+    padding: 0;
+
+    border: 0;
+
+    overflow: hidden;
+
+    clip-path: inset(100%);
+
+}

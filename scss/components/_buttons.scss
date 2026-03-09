@@ -1,0 +1,85 @@
+@use '../base/variables' as *;
+
+@mixin cta-btn($size: md, $variant: default) {
+
+  display: inline-block;
+  position: relative;
+  background: transparent;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s;
+  isolation: isolate;
+
+  cursor: pointer;
+
+  @if $size == md {
+    padding: 14px 36px;
+    font-size: 0.875rem;
+  } @else if $size == sm {
+    padding: 10px 24px;
+    font-size: 0.8rem;
+  } @else if $size == lg {
+    padding: 18px 48px;
+    font-size: 1rem;
+  }
+
+  @if $variant == reverse {
+
+    color: #000;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid #000;
+      transform: skewX(-12deg);
+      transition: background 0.2s;
+      z-index: -1;
+    }
+
+    &:hover::before { background: #000; }
+    &:hover { color: #fff; }
+
+  } @else {
+
+    color: $color-accent;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid $color-accent;
+      transform: skewX(-12deg);
+      transition: background 0.2s;
+      z-index: -1;
+    }
+
+    &:hover::before { background: $color-accent; }
+    &:hover { color: #000; }
+
+  }
+
+  /* DISABLED STATE */
+
+  &:disabled {
+
+    cursor: not-allowed;
+    opacity: 0.4;
+
+  }
+
+  &:disabled::before {
+
+    border-color: rgba($color-white, .25);
+
+  }
+
+  &:disabled:hover::before {
+
+    background: transparent;
+
+  }
+
+}

@@ -1,0 +1,51 @@
+
+
+.featured-products {
+     padding: 64px 1rem;
+
+    padding-block: 100px;
+
+
+    @media (min-width: 1024px) {
+        padding: 96px 1rem;
+    }
+
+    & .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 24px;
+        text-align: center;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        @media (min-width: 768px ) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        & h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #111;
+            line-height: 1;
+            letter-spacing: 0.02em;
+        }
+        & p {
+            font-size: 1rem;
+            color: #333;
+            max-width: 52ch;
+            line-height: 1.7;
+
+            & strong {
+                display: block;
+                color: #111;
+            }
+        }
+    }
+}

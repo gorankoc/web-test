@@ -1,0 +1,79 @@
+@use '../base/variables' as *;
+@use '../components/buttons' as *;
+
+.product-card {
+
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: #f1f1f1;
+    padding: 24px;
+    text-align: left;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80px;
+        height: 80px;
+        background: #1a2a3a;
+        clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
+        z-index: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: -10px;
+        width: 100px;
+        height: 100px;
+        background: $accent;
+        clip-path: polygon(0 0, 0 100%, 100% 100%);
+        z-index: -1;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+        width: 310px;
+    }
+    @media (min-width: $breakpoint-desktop) {
+
+        width: 310px;
+    }
+
+    h3 {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    a{
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        padding:10px;
+        @include cta-btn(lg);
+    }
+
+    &__image {
+        margin-bottom: 20px;
+        text-align: center;
+
+        img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+        }
+    }
+
+}

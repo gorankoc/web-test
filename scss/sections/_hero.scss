@@ -1,0 +1,95 @@
+@use '../base/variables' as *;
+@use '../components/buttons' as *;
+
+.hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    overflow: hidden;
+    background-image: url('/assets/IMAGES/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+
+    @media (min-width: 1024px) {
+        min-height: 720px;
+    }
+
+    &__brands {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        gap: 24px;
+        text-align: center;
+
+        padding: 1rem;
+
+         @media (min-width: $breakpoint-desktop) {
+            flex-direction: row;
+        }
+
+
+        @media (min-width: $breakpoint-tablet) {
+            padding: 64px 24px;
+            flex-direction: row;
+        }
+
+    }
+
+    &__caption {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        padding-top: 64px;
+        padding-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        min-height: 700px;
+
+        align-items: flex-start;
+
+        span{
+            color: #00aeef;
+        }
+        h1{
+            color: white;
+        }
+        p{
+            font-size: 24px;
+            color: #fff;
+            line-height: 1;
+            max-width: 42ch;
+        }
+        a{
+            @include cta-btn(lg);
+        }
+
+        @media (min-width: 1024px) {
+            padding-top: 64px;
+            padding-left: 4rem;
+        }
+    }
+
+    &__title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.1;
+        max-width: 14ch;
+
+        span {
+            color: #00aeef;
+        }
+    }
+
+    &__lead {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        color: rgba(#fff, 0.8);
+        max-width: 42ch;
+    }
+}

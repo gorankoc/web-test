@@ -1,0 +1,15 @@
+@use 'buttons' as *;
+
+.cta-btn {
+    @include cta-btn();
+}
+.cta-btn--reverse {
+    @include cta-btn(md, reverse);
+}
+.cta-btn--large {
+    @include cta-btn(lg);
+}
+
+.cta-btn--large--reverse {
+    @include cta-btn(lg, reverse);
+}

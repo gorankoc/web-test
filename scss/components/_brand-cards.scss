@@ -1,0 +1,109 @@
+@use '../base/variables' as *;
+@use '../components/buttons' as *;
+
+
+.brand-card {
+    position: relative;
+    overflow: hidden;
+    background: black;
+    padding: 40px 30px;
+    display: flex;
+    align-items: center;
+    min-height: 260px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: $accent;
+        clip-path: polygon(65% 0%, 100% 0%, 100% 100%, 45% 100%);
+        z-index: 0;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-width: 55%;
+
+        & h3 {
+            font-weight: 900;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            line-height: 1;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        & p {
+            color: #fff;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        & a {
+            @include cta-btn(sm);
+            align-self: flex-start;
+        }
+    }
+
+    & figure {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        margin: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px;
+
+        & img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+        }
+    }
+
+    &--reverse {
+        background: $accent;
+
+        &::after {
+            background: #000;
+            clip-path: polygon(65% 0%, 100% 0%, 100% 100%, 45% 100%);
+        }
+
+        & .brand-card__content {
+            & h3 { color: #000; }
+            & p  { color: #000; }
+            & a  { @include cta-btn(sm, reverse); }
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 30px;
+        min-height: auto;
+
+        &::after {
+            clip-path: polygon(0% 60%, 100% 40%, 100% 100%, 0% 100%);
+        }
+
+        &__content {
+            max-width: 100%;
+            z-index: 2;
+        }
+
+        & figure {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            margin-top: 16px;
+        }
+    }
+}

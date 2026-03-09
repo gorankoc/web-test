@@ -1,0 +1,32 @@
+.map-section {
+    padding: 4rem 0;
+}
+
+.map-embed {
+    width: 100%;
+    overflow: hidden;
+
+    iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 0;
+        display: block;
+    }
+
+    @media (min-width: 768px) {
+
+        iframe {
+            aspect-ratio: 21 / 9;
+        }
+
+    }
+
+    @media (min-width: 1200px) {
+
+        iframe {
+            aspect-ratio: 24 / 9;
+        }
+
+    }
+
+}
